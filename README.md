@@ -4,7 +4,7 @@
 
 In this repository, you'll learn the steps for building and deploying an image classification model.
 
-![](./images/RubiksOverview.mp4)
+[![IoT Image Classification Rubiks Cube](/images/imageClassificationRubiksCube.png)](https://players.brightcove.net/3665946608001/default_default/index.html?videoId=6130149939001 "IoT Image Classification Rubiks Cube")
 
 ### Prerequisites
 
