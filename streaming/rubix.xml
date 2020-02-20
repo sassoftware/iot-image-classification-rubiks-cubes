@@ -1,0 +1,68 @@
+<engine>
+  <projects>
+<project name="prog1" pubsub="auto" threads="1" use-tagged-token="true" heartbeat-interval="1">
+  <metadata>
+    <meta id="layout">{"CQ":{"image":{"x":120,"y":-30},"imageScoring":{"x":-40,"y":242},"modelReader":{"x":-170,"y":94},"scoreRequest":{"x":-215,"y":-55}}}</meta>
+    <meta id="studioUploadedBy">anonymous</meta>
+    <meta id="studioUploaded">1545323606807</meta>
+    <meta id="studioModifiedBy">anonymous</meta>
+    <meta id="studioModified">1548268991267</meta>
+  </metadata>
+  <contqueries>
+    <contquery name="CQ">
+      <windows>
+        <window-source pubsub="true" index="pi_EMPTY" insert-only="true" autogen-key="true" name="image">
+          <schema>
+            <fields>
+              <field name="id" type="int64" key="true"/>
+              <field name="_image_" type="blob"/>
+            </fields>
+          </schema>
+        </window-source>
+        <window-source insert-only="true" index="pi_HASH" pubsub="true" name="scoreRequest">
+          <schema>
+            <fields>
+              <field name="req_id" type="int64" key="true"/>
+              <field name="req_key" type="string"/>
+              <field name="req_val" type="string"/>
+            </fields>
+          </schema>
+          <connectors>
+            <connector class="fs" name="publisher">
+              <properties>
+                <property name="type"><![CDATA[pub]]></property>
+                <property name="fstype"><![CDATA[csv]]></property>
+                <property name="fsname"><![CDATA[/home/sas/rubix/rubix_request.csv]]></property>
+                <property name="transactional"><![CDATA[true]]></property>
+                <property name="blocksize"><![CDATA[1]]></property>
+              </properties>
+            </connector>
+          </connectors>
+        </window-source>
+        <window-model-reader name="modelReader" pubsub="true" model-type="astore"/>
+        <window-score pubsub="true" name="imageScoring">
+          <schema>
+            <fields>
+              <field name="id" type="int64" key="true"/>
+              <field name="P__label_good" type="double"/>
+              <field name="P__label_bad" type="double"/>
+              <field name="P__label_empty" type="double"/>
+              <field name="I__label_" type="string"/>
+            </fields>
+          </schema>
+          <models>
+            <offline model-type="astore"/>
+          </models>
+        </window-score>
+      </windows>
+      <edges>
+        <edge source="image" target="imageScoring" role="data"/>
+        <edge source="modelReader" target="imageScoring" role="model"/>
+        <edge source="scoreRequest" target="modelReader" role="request"/>
+      </edges>
+    </contquery>
+  </contqueries>
+</project>
+</projects>    
+</engine>
+  
