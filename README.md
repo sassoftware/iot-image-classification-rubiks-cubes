@@ -94,7 +94,7 @@ Model training is optional for this accelerator since the pre-trained .astore fi
   
 To understand more about using DLPy to train image classification models please view the following video.
 
-![](./training/RubiksDeepLeanring.mp4) 
+[![Using DLPy to Create Models](/images/useDLPYToCreateModels.png)](https://players.brightcove.net/3665946608001/default_default/index.html?videoId=6134270869001 "Using DLPy to Create Models")
 
  
 For more information about the DLPy high-level Python APIs which allows you to build deep learning models please see the following examples:
