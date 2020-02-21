@@ -62,6 +62,8 @@ It is recommended that no less than 1000 images be used for each class you inten
 You may use the images found in the [TrainingImages](./training/TrainingImages.zip) zip file which accompanies this repository to reproduce this model on your system.  You may need to add your own images to the training dataset. For example, I was told that Rubik's cubes in Brazil have different colors.  Because of this, I am also including the python script which was used to capture these images.  To learn more about using the [WebcamJPGCollector](./training/WebcamJPGCollector.py) script please watch the following video: 
 
 ![](./training/WebcamJPGcollector.mp4)
+[![JPG Image Collector](/images/jpgImageCollector.png)](https://players.brightcove.net/3665946608001/default_default/index.html?videoId=6134359777001 "JPG Image Collector")
+
 
 
 At the end of this exercise you should have 3 directories.  One for each class of your analytical model.  I named them good, bad and empty.   
